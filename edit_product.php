@@ -6,6 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 include 'config/db.php';
+include('includes/header.php');
 
 // Check if ID is provided
 if (!isset($_GET['id']) || intval($_GET['id']) < 1) {

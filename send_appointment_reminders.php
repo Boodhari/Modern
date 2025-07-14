@@ -17,7 +17,7 @@ while ($row = $res->fetch_assoc()) {
         $phone = "252" . ltrim($phone, "0"); // add country code if missing
     }
 
-    $message = "🦷 Reminder: Dear " . $row['patient_name'] . ", you have a dental appointment tomorrow on " . $row['appointment_date'] . ". - Smart Dental Pharmacy";
+    $message = "🦷 Xasuusin: Mudane / Marwo " . $row['patient_name'] . ",Ogow Beri waxad leedahay balantii dhakhtarka ee kaalay " . $row['appointment_date'] . ". - Modern Dental Clinic";
 
     sendWhatsApp($phone, $message);
 }

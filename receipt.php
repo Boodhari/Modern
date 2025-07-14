@@ -95,7 +95,7 @@ while ($row = $result->fetch_assoc()) {
         <th><?= number_format($total_amount, 2) ?> $</th>
       </tr>
       <tr>
-        <td colspan="4" class="text-end">Date: <?= date('d M Y - H:i', strtotime($sale_date)) ?></td>
+        <td colspan="4" class="text-end">Date: <?= date('d M Y', ($sale_date)) ?></td>
       </tr>
     </tfoot>
   </table>

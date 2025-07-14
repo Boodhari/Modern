@@ -22,7 +22,12 @@ $result = $conn->query("SELECT * FROM products where quantity > 0");
   <a href="add_product.php" class="btn btn-success mb-3">Add New Product</a>
   <table class="table table-bordered">
     <thead>
-      <tr><th>Name</th><th>Price</th><th>Quantity</th></tr>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Actions </th>
+    </tr>
     </thead>
     <tbody>
       <?php while($row = $result->fetch_assoc()): ?>
@@ -30,6 +35,10 @@ $result = $conn->query("SELECT * FROM products where quantity > 0");
           <td><?= htmlspecialchars($row['name']) ?></td>
           <td>$<?= number_format($row['price'], 2) ?></td>
           <td><?= $row['quantity'] ?></td>
+          <td>
+            <a href="edit_product.php?id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
+           
+          </td>
         </tr>
       <?php endwhile; ?>
     </tbody>

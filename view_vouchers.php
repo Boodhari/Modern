@@ -53,7 +53,7 @@ $result = $stmt->get_result();
           <th>#</th>
           <th>Patient Name</th>
           <th>Service</th>
-          <th>Amount Paid (SLSH)</th>
+          <th>Amount Paid ($)</th>
           <th>Date</th>
           <th>Action</th>
         </tr>
@@ -65,7 +65,7 @@ $result = $stmt->get_result();
               <td><?= $i++ ?></td>
               <td><?= htmlspecialchars($row['patient_name']) ?></td>
               <td><?= htmlspecialchars($row['service']) ?></td>
-              <td>SLSH<?= number_format($row['amount_paid'], 2) ?></td>
+              <td>$<?= number_format($row['amount_paid'], 2) ?></td>
               <td><?= date('d M Y - H:i', strtotime($row['date_paid'])) ?></td>
               <td>
                 <a href="print_voucher.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-primary">🖨️ Print</a>

@@ -21,7 +21,7 @@ $result = $conn->query("SELECT * FROM history_taking ORDER BY date_taken DESC");
           <th>Doctor</th>
           <th>Symptoms</th>
           <th>Services</th>
-          <th>Total Price (SLSH)</th>
+          <th>Total Price ($)</th>
         </tr>
       </thead>
       <tbody>

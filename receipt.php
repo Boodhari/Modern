@@ -83,16 +83,16 @@ while ($row = $result->fetch_assoc()) {
       <?php foreach ($sales as $s): ?>
         <tr>
           <td><?= htmlspecialchars($s['product_name']) ?></td>
-          <td><?= number_format($s['unit_price'], 2) ?> SLSH</td>
+          <td><?= number_format($s['unit_price'], 2) ?> $</td>
           <td><?= $s['quantity_sold'] ?></td>
-          <td><?= number_format($s['total'], 2) ?> SLSH</td>
+          <td><?= number_format($s['total'], 2) ?> $</td>
         </tr>
       <?php endforeach; ?>
     </tbody>
     <tfoot>
       <tr>
         <th colspan="3" class="text-end">Total</th>
-        <th><?= number_format($total_amount, 2) ?> SLSH</th>
+        <th><?= number_format($total_amount, 2) ?> $</th>
       </tr>
       <tr>
         <td colspan="4" class="text-end">Date: <?= date('d M Y - H:i', strtotime($sale_date)) ?></td>

@@ -69,8 +69,8 @@ $total_sales = $total_query->fetch_assoc()['total_sales'] ?? 0;
                 <td><?= $i++ ?></td>
                 <td><?= htmlspecialchars($row['name']) ?></td>
                 <td><?= $row['quantity_sold'] ?></td>
-                <td>SLSH<?= number_format($row['price'], 2) ?></td>
-                <td>SLSH<?= number_format($row['total'], 2) ?></td>
+                <td>$<?= number_format($row['price'], 2) ?></td>
+                <td>$<?= number_format($row['total'], 2) ?></td>
                 <td><?= $row['sale_date'] ?></td>
               </tr>
             <?php endwhile; ?>
@@ -81,7 +81,7 @@ $total_sales = $total_query->fetch_assoc()['total_sales'] ?? 0;
         <tfoot class="table-light">
           <tr>
             <th colspan="4" class="text-end">Total Sales:</th>
-            <th colspan="2">SLSH<?= number_format($total_sales, 2) ?></th>
+            <th colspan="2">$<?= number_format($total_sales, 2) ?></th>
           </tr>
         </tfoot>
       </table>

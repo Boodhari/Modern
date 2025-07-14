@@ -70,7 +70,7 @@ for ($i = 6; $i >= 0; $i--) {
       <div class="card shadow-sm border-0 text-white bg-success">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-cash-coin"></i> Today's Sales</h5>
-          <p class="card-text fs-4">SLSH<?= number_format($sales_today, 2) ?></p>
+          <p class="card-text fs-4">$<?= number_format($sales_today, 2) ?></p>
         </div>
       </div>
     </div>

@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <textarea name="services" class="form-control" rows="2" required></textarea>
     </div>
     <div class="col-md-4">
-      <label>Total Price (SLSH)</label>
+      <label>Total Price ($)</label>
       <input type="number" step="0.01" name="total_price" class="form-control" required>
     </div>
     <div class="col-12">

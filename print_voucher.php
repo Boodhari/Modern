@@ -41,7 +41,7 @@ if (!$voucher) {
     <p><strong>Voucher ID:</strong> #<?= $voucher['id'] ?></p>
     <p><strong>Patient Name:</strong> <?= htmlspecialchars($voucher['patient_name']) ?></p>
     <p><strong>Service:</strong> <?= htmlspecialchars($voucher['service']) ?></p>
-    <p><strong>Amount Paid:</strong> SLSH <?= number_format($voucher['amount_paid'], 2) ?></p>
+    <p><strong>Amount Paid:</strong> $ <?= number_format($voucher['amount_paid'], 2) ?></p>
     <p><strong>Date:</strong> <?= date('d M Y - H:i', strtotime($voucher['date_paid'])) ?></p>
     <hr>
     <p>Signature: ____________________________</p>

@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
     <div class="col-md-4">
-      <label>Amount Paid (SLSH)</label>
+      <label>Amount Paid (USD)</label>
       <input type="number" step="0.01" name="amount_paid" class="form-control" required>
     </div>
 

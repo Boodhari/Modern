@@ -1,5 +1,6 @@
 <?php
 include 'config/db.php';
+include('includes/header1.php');
 include 'send_whatsapp.php';
 
 $tomorrow = date('Y-m-d', strtotime('+1 day'));

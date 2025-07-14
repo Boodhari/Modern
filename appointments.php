@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 include 'config/db.php';
-include('includes/header.php');
+include('includes/header1.php');
 
 $visitors = $conn->query("SELECT id, full_name, phone FROM visitors ORDER BY visit_date DESC");
 

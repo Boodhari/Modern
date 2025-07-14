@@ -7,7 +7,7 @@
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-  <a class="navbar-brand" href="dashboard.php">Smart Dental Pharmacy</a>
+  <a class="navbar-brand" href="dashboard.php">Modern Dental Clinic & Pharmacy</a>
   <div class="ms-auto">
     <a class="btn btn-light" href="logout.php">Logout</a>
   </div>

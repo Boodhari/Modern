@@ -35,7 +35,8 @@ if (!$voucher) {
 </head>
 <body>
   <div class="voucher">
-    <h4 class="text-center">🧾 Smart Dental Clinic - Payment Voucher</h4>
+    <h4 class="text-center">🧾 Modern Dental Clinic - Payment Voucher</h4>
+    <h3 class="text-center"> Contuct us : 063-4717156 || 063-7664666/h3>
     <hr>
     <p><strong>Voucher ID:</strong> #<?= $voucher['id'] ?></p>
     <p><strong>Patient Name:</strong> <?= htmlspecialchars($voucher['patient_name']) ?></p>

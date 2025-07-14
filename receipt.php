@@ -68,7 +68,7 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body class="bg-light">
 <div class="receipt-card">
-  <h4 class="text-center mb-4">🧾 Smart Dental Pharmacy Receipt</h4>
+  <h4 class="text-center mb-4">🧾 Modern Dental Pharmacy Receipt</h4>
 
   <table class="table table-bordered">
     <thead>

@@ -78,9 +78,9 @@ $prescriptions = $conn->query("SELECT * FROM prescriptions ORDER BY date_prescri
       <!-- Header: Logo Left, Info Right -->
      <div class="clinic-header text-center">
   <img src="./assets/logo.PNG" alt="Clinic Logo" class="clinic-logo mb-2"> <!-- Replace path -->
-  <h2 class="mb-1 text-primary">SMART DENTAL CLINIC</h2>
-  <p class="mb-0 fs-6 fw-bold">Tel: 063-4756610 /  063-4207474 /  518489</p>
-  <p class="mb-0 fw-semibold fs-6">26 june , Indho-birta Mall ,Hargeisa, Somaliland</p>
+  <h2 class="mb-1 text-primary">MODERN DENTAL CLINIC</h2>
+  <p class="mb-0 fs-6 fw-bold">Tel: 063-4717156 /  063-7664666 /065-4717156</p>
+  <p class="mb-0 fw-semibold fs-6">26 june ,Road 1, Hayat-Mall ,Hargeisa, Somaliland</p>
   <h6 class="fw-bold fs-5 mt-2 text-success">Medical Prescription</h6>
 </div>
 

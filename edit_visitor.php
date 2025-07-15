@@ -21,9 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $purpose = $_POST['purpose'];
     $paid = $_POST['paid'];
     $status = $_POST['status'];
+    $phone = $_POST['phone'];
 
-    $update = $conn->prepare("UPDATE visitors SET full_name=?, purpose=?,paid=?, status=? WHERE id=?");
-    $update->bind_param("ssssi", $full_name, $purpose,$paid, $status, $id);
+    $update = $conn->prepare("UPDATE visitors SET full_name=?,phone=?, purpose=?,paid=?, status=? WHERE id=?");
+    $update->bind_param("ssssii", $full_name,$phone, $purpose,$paid, $status, $id);
     $update->execute();
     $success = true;
 }
@@ -46,6 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="col-md-6">
       <label>Full Name</label>
       <input type="text" name="full_name" value="<?= htmlspecialchars($visitor['full_name']) ?>" class="form-control" required>
+    </div>
+     <div class="col-md-6">
+      <label>Phone Number</label>
+      <input type="text" name="phone" value="<?= htmlspecialchars($visitor['phone']) ?>" class="form-control" required>
     </div>
     <div class="col-md-6">
       <label>Purpose</label>

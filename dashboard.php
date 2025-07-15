@@ -103,10 +103,10 @@ for ($i = 6; $i >= 0; $i--) {
       ["view_prescriptions.php", "bi-clipboard-data", "Prescriptions", "View and print prescriptions.", "secondary"],
       ["register_visitor.php", "bi-person-plus", "Register Visitor", "Register daily visitors to the pharmacy.", "info"],
       ["visitor_status.php", "bi-person-lines-fill", "Visitor Status", "Check and manage visitor status.", "dark"],
-      ["view_visitors.php", "bi-people", "Visitor View", "View visitor records.", "dark"],
-      ["view_history.php", "bi-clock-history", "History View", "View medical history.", "dark"],
-      ["generate_voucher.php", "bi-file-earmark-plus", "Create Voucher", "Generate new payment voucher.", "dark"],
-      ["view_vouchers.php", "bi-receipt", "Print Vouchers", "View and print vouchers.", "dark"]
+      ["view_visitors.php", "bi-people", "Visitor View", "View visitor records.", "light"],
+      ["view_history.php", "bi-clock-history", "History View", "View medical history.", "success"],
+      ["generate_voucher.php", "bi-file-earmark-plus", "Create Voucher", "Generate new payment voucher.", "warning"],
+      ["view_vouchers.php", "bi-receipt", "Print Vouchers", "View and print vouchers.", "primary"]
     ];
 
     foreach ($features as $f):

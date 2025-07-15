@@ -87,5 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="products.php" class="btn btn-secondary">⬅️ Cancel</a>
   </form>
 </div>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

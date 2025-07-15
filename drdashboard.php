@@ -222,5 +222,6 @@ $recent_result = queryOrDie($conn, "SELECT patient_name, doctor_name, date_presc
     document.getElementById('live-time').textContent = time;
   }, 1000);
 </script>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

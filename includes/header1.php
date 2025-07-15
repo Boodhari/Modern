@@ -10,9 +10,16 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  @media print {
+    .no-print, .no-print * {
+      display: none !important;
+    }
+  }
+</style>
 </head>
 <body class="bg-light">
-
+<div class="no-print">
 <!-- Responsive Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
   <a class="navbar-brand d-flex align-items-center" href="drdashboard.php">

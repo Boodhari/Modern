@@ -77,7 +77,7 @@ $prescriptions = $conn->query("SELECT * FROM prescriptions ORDER BY date_prescri
 
       <!-- Header: Logo Left, Info Right -->
      <div class="clinic-header text-center">
-  <img src="./assets/logo.PNG" alt="Clinic Logo" class="clinic-logo mb-2"> <!-- Replace path -->
+  <img src="./assets/modern.png" alt="Clinic Logo" class="clinic-logo mb-2"> <!-- Replace path -->
   <h2 class="mb-1 text-primary">MODERN DENTAL CLINIC</h2>
   <p class="mb-0 fs-6 fw-bold">Tel: 063-4717156 /  063-7664666 /065-4717156</p>
   <p class="mb-0 fw-semibold fs-6">26 june ,Road 1, Hayat-Mall ,Hargeisa, Somaliland</p>

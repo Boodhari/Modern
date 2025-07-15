@@ -11,7 +11,7 @@
         <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i> +252634024452</p>
         <p class="mb-0">
           <i class="bi bi-whatsapp me-2"></i> 
-          <a href="https://wa.me/252634024452 class="text-white text-decoration-underline" target="_blank">WhatsApp Chat</a>
+          <a href="https://wa.me/252634024452" class="text-white text-decoration-underline" target="_blank">WhatsApp Chat</a>
         </p>
       </div>
 

@@ -125,41 +125,11 @@ for ($i = 6; $i >= 0; $i--) {
   </div>
 
   <!-- Chart -->
-  <div class="mt-5">
-    <h4 class="mb-3">📊 Sales (Last 7 Days)</h4>
-    <canvas id="weeklyChart" height="100"></canvas>
-  </div>
 
-  <div class="mt-5 text-end">
-    <a href="logout.php" class="btn btn-outline-danger">
-      <i class="bi bi-box-arrow-right"></i> Logout
-    </a>
-  </div>
-</div>
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('weeklyChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: <?= json_encode($labels) ?>,
-      datasets: [{
-        label: 'Daily Sales ($)',
-        data: <?= json_encode($weekly_sales) ?>,
-        backgroundColor: 'rgba(54, 162, 235, 0.7)'
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: { beginAtZero: true }
-      }
-    }
-  });
-</script>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     // Insert voucher
-    $insert = $conn->prepare("INSERT INTO vouchers (visitor_id, patient_name, service, amount_paid ,payment_type) VALUES (?, ?, ?, ?)");
+    $insert = $conn->prepare("INSERT INTO vouchers (visitor_id, patient_name, service, amount_paid ,payment_type) VALUES (?, ?, ?, ?, ?)");
     $insert->bind_param("issds", $visitor_id, $patient_name, $service, $amount,$payment_type);
     $insert->execute();
     $voucher_id = $insert->insert_id;

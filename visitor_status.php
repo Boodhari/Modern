@@ -29,6 +29,7 @@ $result = $conn->query("SELECT * FROM visitors ORDER BY visit_date DESC");
       <tr>
         <th>#</th>
         <th>Full Name</th>
+        <th>Phone</th>
         <th>Purpose</th>
         <th>Paid</th>
         <th>Visit Time</th>
@@ -42,6 +43,7 @@ $result = $conn->query("SELECT * FROM visitors ORDER BY visit_date DESC");
         <tr>
           <td><?= $i++ ?></td>
           <td><?= htmlspecialchars($row['full_name']) ?></td>
+          <td><?= htmlspecialchars($row['phone']) ?></td>
           <td><?= htmlspecialchars($row['purpose']) ?></td>
           <td>$<?= htmlspecialchars($row['Paid']) ?></td>
           <td><?= date('d M Y - H:i', strtotime($row['visit_date'])) ?></td>

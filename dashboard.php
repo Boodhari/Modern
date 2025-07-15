@@ -123,6 +123,7 @@ for ($i = 6; $i >= 0; $i--) {
       </div>
     <?php endforeach; ?>
   </div>
+    </div>
 
   <!-- Chart -->
 

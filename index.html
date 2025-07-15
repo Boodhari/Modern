@@ -7,19 +7,21 @@
   <meta name="description" content="Login to Modern Dental Clinic & Pharmacy POS System">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="./assets/favicon.png" type="image/png"> <!-- Replace with actual favicon path -->
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #d9f5ff, #f8f9fa);
+      background: url('./assets/dback.jpg') no-repeat center center fixed;
+      background-size: cover;
       min-height: 100vh;
+      margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .welcome-box {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.95);
       padding: 50px 40px;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
@@ -39,10 +41,12 @@
       margin-bottom: 10px;
     }
 
-    .welcome-box p {
+    .dynamic-text {
+      font-size: 1.05rem;
       color: #555;
-      font-size: 1rem;
+      height: 28px;
       margin-bottom: 30px;
+      min-height: 30px;
     }
 
     .btn-login {
@@ -61,11 +65,46 @@
 <body>
 
 <div class="welcome-box">
-  <img src="./assets/logo.png" alt="Clinic Logo"> <!-- Replace with your logo -->
-  <h1>🦷 Welcome to Modern Dental Clinic </h1>
-  <p class="lead">Manage appointments, prescriptions, inventory, and sales — all in one platform.</p>
+  <img src="./assets/modern.png" alt="Clinic Logo">
+  <h1>Welcome to Modern Dental Clinic</h1>
+  <div class="dynamic-text" id="typed-text"></div>
   <a href="login.php" class="btn btn-primary btn-login">Login to System</a>
 </div>
+
+<script>
+  const phrases = [
+    "Manage your inventory with ease.",
+    "Track dental prescriptions efficiently.",
+    "Schedule patient appointments.",
+    "Print receipts and vouchers instantly.",
+    "Modernize your dental pharmacy today!"
+  ];
+
+  let currentPhrase = 0;
+  let currentChar = 0;
+  let isDeleting = false;
+  const typedText = document.getElementById("typed-text");
+
+  function typeEffect() {
+    const text = phrases[currentPhrase];
+    const speed = isDeleting ? 50 : 100;
+
+    typedText.textContent = text.substring(0, currentChar);
+
+    if (!isDeleting && currentChar < text.length) {
+      currentChar++;
+    } else if (isDeleting && currentChar > 0) {
+      currentChar--;
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) currentPhrase = (currentPhrase + 1) % phrases.length;
+    }
+
+    setTimeout(typeEffect, isDeleting ? 40 : 100);
+  }
+
+  typeEffect();
+</script>
 
 </body>
 </html>

@@ -40,12 +40,13 @@ for ($i = 6; $i >= 0; $i--) {
 <head>
   <title>Dashboard - Pharmacy POS</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- ✅ Required for responsiveness -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-<div class="container py-5">
-  <h2 class="mb-4">Welcome, <?= htmlspecialchars($_SESSION['username']) ?> 👋</h2>
+<div class="container-fluid py-5"> <!-- ✅ fluid for full screen -->
+  <h2 class="mb-4 text-center text-md-start">Welcome, <?= htmlspecialchars($_SESSION['username']) ?> 👋</h2>
 
   <?php if ($low_stock_count > 0): ?>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -56,154 +57,74 @@ for ($i = 6; $i >= 0; $i--) {
     </div>
   <?php endif; ?>
 
-  <div class="row g-4 mb-4">
- 
-    <div class="col-md-3">
-      <div class="card shadow-sm border-0 text-white bg-primary">
+  <!-- Summary Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm text-white bg-primary">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-box-seam"></i> Total Stock</h5>
           <p class="card-text fs-4"><?= $total_stock ?> units</p>
         </div>
       </div>
     </div>
-       <div class="col-md-3">
-      <div class="card shadow-sm border-0 text-white bg-success">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm text-white bg-success">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-cash-coin"></i> Today's Sales</h5>
           <p class="card-text fs-4">$<?= number_format($sales_today, 2) ?></p>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card shadow-sm border-0 text-white bg-danger">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm text-white bg-danger">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-exclamation-triangle"></i> Low Stock</h5>
           <p class="card-text fs-4"><?= $low_stock_count ?> item(s)</p>
         </div>
       </div>
     </div>
-        <div class="col-md-3">
-      <div class="card shadow-sm border-0 text-white bg-info">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm text-white bg-info">
         <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-clipboard-check"></i>Prescriptions</h5>
+          <h5 class="card-title"><i class="bi bi-clipboard-check"></i> Prescriptions</h5>
           <p class="card-text fs-4"><?= $total_prescriptions ?> issued</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row g-4">
-    <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-box display-4 text-primary mb-3"></i>
-          <h5 class="card-title">Manage Products</h5>
-          <p class="card-text">Add, update and manage inventory.</p>
-          <a href="products.php" class="btn btn-outline-primary w-100">Go to Products</a>
+  <!-- Action Cards -->
+  <div class="row g-3">
+    <?php
+    $features = [
+      ["products.php", "bi-box", "Manage Products", "Add, update and manage inventory.", "primary"],
+      ["sell.php", "bi-cart-check", "Sell Products", "Process sales and print receipts.", "success"],
+      ["sales_report.php", "bi-graph-up-arrow", "Sales Report", "View and search daily sales.", "warning"],
+      ["view_prescriptions.php", "bi-clipboard-data", "Prescriptions", "View and print prescriptions.", "secondary"],
+      ["register_visitor.php", "bi-person-plus", "Register Visitor", "Register daily visitors to the pharmacy.", "info"],
+      ["visitor_status.php", "bi-person-lines-fill", "Visitor Status", "Check and manage visitor status.", "dark"],
+      ["view_visitors.php", "bi-people", "Visitor View", "View visitor records.", "dark"],
+      ["view_history.php", "bi-clock-history", "History View", "View medical history.", "dark"],
+      ["generate_voucher.php", "bi-file-earmark-plus", "Create Voucher", "Generate new payment voucher.", "dark"],
+      ["view_vouchers.php", "bi-receipt", "Print Vouchers", "View and print vouchers.", "dark"]
+    ];
+
+    foreach ($features as $f):
+    ?>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <i class="bi <?= $f[1] ?> display-4 text-<?= $f[4] ?> mb-3"></i>
+            <h5 class="card-title"><?= $f[2] ?></h5>
+            <p class="card-text"><?= $f[3] ?></p>
+            <a href="<?= $f[0] ?>" class="btn btn-outline-<?= $f[4] ?> w-100">Go</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-cart-check display-4 text-success mb-3"></i>
-          <h5 class="card-title">Sell Products</h5>
-          <p class="card-text">Process sales and print receipts.</p>
-          <a href="sell.php" class="btn btn-outline-success w-100">Sell Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-graph-up-arrow display-4 text-warning mb-3"></i>
-          <h5 class="card-title">Sales Report</h5>
-          <p class="card-text">View and search daily sales.</p>
-          <a href="sales_report.php" class="btn btn-outline-warning w-100">View Reports</a>
-       
-         
-        </div>
-      </div>
-      
-    </div>
-    <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-clipboard-data display-4 text-secondary mb-3"></i>
-          <h5 class="card-title">Prescriptions</h5>
-          <p class="card-text">View and print prescriptions.</p>
-          <a href="view_prescriptions.php" class="btn btn-outline-secondary w-100">View Prescriptions</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row py-2">
-    <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-person-plus display-4 text-info mb-3"></i>
-          <h5 class="card-title">Register Visitor</h5>
-          <p class="card-text">Register daily visitors to the pharmacy.</p>
-          <a href="register_visitor.php" class="btn btn-outline-info w-100">Register Visitor</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-person-lines-fill display-4 text-dark mb-3"></i>
-          <h5 class="card-title">Visitor Status</h5>
-          <p class="card-text">Check and manage visitor status.</p>
-          <a href="visitor_status.php" class="btn btn-outline-dark w-100">Check Status</a>
-        </div>  
-        </div>
-      </div>
-        <div class="col-md-3">  
-          <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-person-lines-fill display-4 text-dark mb-3"></i>
-          <h5 class="card-title">Visitor View</h5>
-          <p class="card-text">visitor view</p>
-          <a href="view_visitors.php" class="btn btn-outline-dark w-100">View Visitors</a>
-        </div>
-       </div>
-       </div>
-       <div class="col-md-3">  
-          <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-person-lines-fill display-4 text-dark mb-3"></i>
-          <h5 class="card-title">History View</h5>
-          <p class="card-text">History view</p>
-          <a href="view_history.php" class="btn btn-outline-dark w-100">View History</a>
-        </div>
-       </div>
-       </div>
-        
-  </div>
-  <div class="row py-2">
-    <div class="col-md-6">  
-          <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-person-lines-fill display-4 text-dark mb-3"></i>
-          <h5 class="card-title">Create voucher</h5>
-          <p class="card-text">Voucher view</p>
-          <a href="generate_voucher.php" class="btn btn-outline-dark w-100">New Voucher</a>
-        </div>
-       </div>
-       </div>
-        <div class="col-md-6">  
-          <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center">
-          <i class="bi bi-person-lines-fill display-4 text-dark mb-3"></i>
-          <h5 class="card-title">Print vouchers</h5>
-          <p class="card-text">Voucher view</p>
-          <a href="view_vouchers.php" class="btn btn-outline-dark w-100">View Voucher</a>
-        </div>
-       </div>
-       </div>
+    <?php endforeach; ?>
   </div>
 
-  <!-- Chart Section -->
+  <!-- Chart -->
   <div class="mt-5">
     <h4 class="mb-3">📊 Sales (Last 7 Days)</h4>
     <canvas id="weeklyChart" height="100"></canvas>
@@ -216,7 +137,7 @@ for ($i = 6; $i >= 0; $i--) {
   </div>
 </div>
 
-<!-- Bootstrap and Chart.js -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -233,6 +154,7 @@ for ($i = 6; $i >= 0; $i--) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       scales: {
         y: { beginAtZero: true }
       }

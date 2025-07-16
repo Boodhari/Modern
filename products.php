@@ -37,6 +37,7 @@ $result = $conn->query("SELECT * FROM products where quantity > 0");
           <td><?= $row['quantity'] ?></td>
           <td>
             <a href="edit_product.php?id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
+            <a href="delete_product.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
            
           </td>
         </tr>

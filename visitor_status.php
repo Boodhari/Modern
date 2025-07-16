@@ -68,6 +68,7 @@ $result = $conn->query("SELECT * FROM visitors ORDER BY visit_date DESC");
           </td>
           <td>
              <a href="edit_visitor.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+              <a href="delete_visitor.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this visitor?');">Delete</a>
           </td>
         </tr>
       <?php endwhile; ?>

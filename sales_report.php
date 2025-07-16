@@ -30,6 +30,13 @@ $total_sales = $total_query->fetch_assoc()['total_sales'] ?? 0;
 <head>
   <title>Sales Report - Pharmacy POS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  @media print {
+    .btn, .form-control, form, .no-print {
+      display: none !important;
+    }
+  }
+</style>
 </head>
 <body class="bg-light">
 <div class="container mt-5">
@@ -60,6 +67,7 @@ $total_sales = $total_query->fetch_assoc()['total_sales'] ?? 0;
             <th>Unit Price</th>
             <th>Total</th>
             <th>Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +80,10 @@ $total_sales = $total_query->fetch_assoc()['total_sales'] ?? 0;
                 <td>$<?= number_format($row['price'], 2) ?></td>
                 <td>$<?= number_format($row['total'], 2) ?></td>
                 <td><?= $row['sale_date'] ?></td>
+                  <td>
+    <a href="receipt.php?sale_id=<?= $row['id'] ?>" class="btn btn-sm btn-primary" target="_blank">🖨️ Print</a>
+    <a href="delete_sale.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this sale?');">🗑️ Delete</a>
+  </td>
               </tr>
             <?php endwhile; ?>
           <?php else: ?>

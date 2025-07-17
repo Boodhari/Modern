@@ -32,7 +32,7 @@ $result = $conn->query("SELECT * FROM history_taking ORDER BY date_taken DESC");
           <td><?= htmlspecialchars($row['doctor_name']) ?></td>
           <td><?= nl2br(htmlspecialchars($row['symptoms'])) ?></td>
           <td><?= nl2br(htmlspecialchars($row['services'])) ?></td>
-          <td><?= number_format($row['total_price'], 2) ?></td>
+          <td>$<?= number_format($row['total_price'], 2) ?></td>
         </tr>
         <?php endwhile; ?>
       </tbody>

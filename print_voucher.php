@@ -51,13 +51,13 @@ if (!$voucher) {
 
 <!-- Print content -->
 <div class="voucher">
-  <h5 class="text-center">🧾 Modern Dental Clinic - Payment Voucher</h5>
+  <h5 class="text-center">Modern Dental Clinic</h5>
   <p class="text-center mb-1">Contact us: 063-4717156 / 063-7664666</p>
   <hr>
   <p><strong>Voucher ID:</strong> #<?= $voucher['id'] ?></p>
   <p><strong>Patient Name:</strong> <?= htmlspecialchars($voucher['patient_name']) ?></p>
   <p><strong>Service:</strong> <?= htmlspecialchars($voucher['service']) ?></p>
-  <p><strong>Amount Paid:</strong> <?= number_format($voucher['amount_paid'], 2) ?> SLSH</p>
+  <p><strong>Amount Paid:</strong>$ <?= number_format($voucher['amount_paid'], 2) ?> </p>
   <p><strong>Payment Type:</strong> <?= htmlspecialchars($voucher['payment_type']) ?></p>
   <p><strong>Date:</strong> <?= date('d M Y - H:i', strtotime($voucher['date_paid'])) ?></p>
   <hr>

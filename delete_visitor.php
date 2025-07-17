@@ -1,22 +1,17 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit;
-}
-
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    die("Invalid ID.");
-}
-
 include 'config/db.php';
 
-$id = intval($_GET['id']);
+$id = $_GET['id'] ?? 0;
 
-// Delete visitor
-$stmt = $conn->prepare("DELETE FROM visitors WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
+// First, delete related appointments
+$stmt1 = $conn->prepare("DELETE FROM appointments WHERE visitor_id = ?");
+$stmt1->bind_param("i", $id);
+$stmt1->execute();
+
+// Then delete the visitor
+$stmt2 = $conn->prepare("DELETE FROM visitors WHERE id = ?");
+$stmt2->bind_param("i", $id);
+$stmt2->execute();
 
 header("Location: visitor_status.php");
 exit;

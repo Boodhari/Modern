@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <h2 class="mb-4">✏️ Edit Visitor Status</h2>
 
   <?php if ($success): ?>
-    <div class="alert alert-success">Visitor updated successfully. <a href="live_visitor_status.php">Back to list</a></div>
+    <div class="alert alert-success">Visitor updated successfully. <a href="visitor_status.php">Back to list</a></div>
   <?php endif; ?>
 
   <form method="POST" class="row g-3">
